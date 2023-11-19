@@ -1,8 +1,8 @@
-import { Grid } from '@mui/material';
+import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material';
 import React from 'react';
 
 const GoodsItem = (props) => {
-    const { name, price, setOrder } = props;
+    const { name, price, setOrder, poster } = props;
 
     return (
         <Grid item justifyContent={'center'}
@@ -11,20 +11,24 @@ const GoodsItem = (props) => {
             md={4}
             lg={3}
         >
-            <div className='card'>
-                <img
-                    src={`https://via.placeholder.com/300x150.png?text=${name.slice(
-                        0,
-                        12
-                    )}`}
-                    className='card-img-top'
-                    alt={name}
+            <Card sx={{height: '100%', maxWidth: 345 }}>
+                <CardMedia sx={{ height: 180 }}
+                    image={`${poster}`}
+                    title={'card'}
+                    alt={'card'}
+                    component="img"
                 />
-                <div className='card-body'>
-                    <h5 className='card-title'>{name}</h5>
-                    <p className='card-text'>Цена: {price} руб.</p>
-                    <button
-                        className='btn btn-primary'
+                <CardContent>
+                    <Typography component={'h5'} variant="h6">
+                        {name}
+                    </Typography>
+                    <Typography component="p" variant="body1">
+                        Цена: {price} руб.
+                    </Typography>
+                </CardContent>
+                <CardActions>
+                    <Button
+                        variant="text"
                         onClick={() =>
                             setOrder({
                                 id: props.id,
@@ -34,9 +38,9 @@ const GoodsItem = (props) => {
                         }
                     >
                         Купить
-                    </button>
-                </div>
-            </div>
+                    </Button>
+                </CardActions>
+            </Card>
         </Grid>
     );
 };
