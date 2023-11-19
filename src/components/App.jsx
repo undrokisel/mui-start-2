@@ -5,6 +5,7 @@ import GoodsList from './GoodsList';
 import Search from './Search';
 
 import { goods } from '../data/goods';
+import { Header } from './Header';
 
 const App = () => {
     const [order, setOrder] = useState([]);
@@ -67,6 +68,7 @@ const App = () => {
     return (
         <div className='App'>
             <div className='container'>
+                <Header/>
                 <Search
                     value={search}
                     onChange={handleChange}
