@@ -5,12 +5,14 @@ import { goods } from '../data/goods';
 import { Header } from './Header';
 import { Container } from '@mui/material';
 import { Basket } from './Basket';
+import { Notification } from './Notification';
 
 const App = () => {
     const [order, setOrder] = useState([]);
     const [search, setSearch] = useState('');
     const [products, setProducts] = useState(goods);
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+    const [isSnackOpen, setIsSnackOpen] = useState(false);
 
 
     const handleChange = (e) => {
@@ -60,6 +62,7 @@ const App = () => {
             ],
             );
         }
+        setIsSnackOpen(true)
     };
 
     const removeFromOrder = (goodId) => {
@@ -86,6 +89,9 @@ const App = () => {
                 order={order}
                 removeFromOrder={removeFromOrder}
             />
+            <Notification
+                isSnackOpen={isSnackOpen}
+                handleSnackClose={() => setIsSnackOpen(false)} />
         </Container>
     );
 }
