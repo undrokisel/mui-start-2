@@ -69,6 +69,7 @@ const App = () => {
     return (
         <Container>
             <Header
+                order={order}
                 openDrawer={() => setIsDrawerOpen(true)}
             />
             <Search
