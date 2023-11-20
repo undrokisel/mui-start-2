@@ -7,7 +7,6 @@ import { Badge } from '@mui/material';
 
 
 export const Header = ({ openDrawer, order }) => {
-
   return (
 
     <AppBar position="static">
@@ -23,7 +22,7 @@ export const Header = ({ openDrawer, order }) => {
           color="inherit"
           onClick={openDrawer}
         >
-          <Badge badgeContent={order.length} color="secondary">
+          <Badge badgeContent={order.length} color='secondary'>
             <ShoppingBasketIcon />
           </Badge>
         </IconButton>

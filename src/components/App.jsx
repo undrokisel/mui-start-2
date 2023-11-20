@@ -70,29 +70,32 @@ const App = () => {
     };
 
     return (
-        <Container>
+        <>
             <Header
+
                 order={order}
                 openDrawer={() => setIsDrawerOpen(true)}
             />
-            <Search
-                value={search}
-                onChange={handleChange}
-            />
-            <GoodsList
-                goods={products}
-                setOrder={addToOrder}
-            />
-            <Basket
-                isDrawerOpen={isDrawerOpen}
-                openDrawer={setIsDrawerOpen}
-                order={order}
-                removeFromOrder={removeFromOrder}
-            />
-            <Notification
-                isSnackOpen={isSnackOpen}
-                handleSnackClose={() => setIsSnackOpen(false)} />
-        </Container>
+            <Container>
+                <Search
+                    value={search}
+                    onChange={handleChange}
+                />
+                <GoodsList
+                    goods={products}
+                    setOrder={addToOrder}
+                />
+                <Basket
+                    isDrawerOpen={isDrawerOpen}
+                    openDrawer={setIsDrawerOpen}
+                    order={order}
+                    removeFromOrder={removeFromOrder}
+                />
+                <Notification
+                    isSnackOpen={isSnackOpen}
+                    handleSnackClose={() => setIsSnackOpen(false)} />
+            </Container>
+        </>
     );
 }
 
