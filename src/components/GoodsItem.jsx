@@ -11,7 +11,7 @@ const GoodsItem = (props) => {
             md={4}
             lg={3}
         >
-            <Card sx={{height: '100%', maxWidth: 345 }}>
+            <Card sx={{ height: '100%', maxWidth: 345 }}>
                 <CardMedia sx={{ height: 180 }}
                     image={`${poster}`}
                     title={'card'}

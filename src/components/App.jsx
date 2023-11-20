@@ -1,17 +1,17 @@
 import { useState } from 'react';
-
-import BasketList from './BasketList';
 import GoodsList from './GoodsList';
 import Search from './Search';
-
 import { goods } from '../data/goods';
 import { Header } from './Header';
 import { Container } from '@mui/material';
+import { Basket } from './Basket';
 
 const App = () => {
     const [order, setOrder] = useState([]);
     const [search, setSearch] = useState('');
     const [products, setProducts] = useState(goods);
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
 
     const handleChange = (e) => {
         if (!e.target.value) {
@@ -62,13 +62,15 @@ const App = () => {
         }
     };
 
-    const removeFromOrder = (goodsItem) => {
-        setOrder(order.filter((item) => item.id !== goodsItem));
+    const removeFromOrder = (goodId) => {
+        setOrder(order.filter((item) => item.id !== goodId));
     };
 
     return (
         <Container>
-            <Header />
+            <Header
+                openDrawer={() => setIsDrawerOpen(true)}
+            />
             <Search
                 value={search}
                 onChange={handleChange}
@@ -77,9 +79,11 @@ const App = () => {
                 goods={products}
                 setOrder={addToOrder}
             />
-            <BasketList
+            <Basket
+                isDrawerOpen={isDrawerOpen}
+                openDrawer={setIsDrawerOpen}
                 order={order}
-                setOrder={removeFromOrder}
+                removeFromOrder={removeFromOrder}
             />
         </Container>
     );

@@ -4,20 +4,23 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 
-export const Header = () => {
+
+export const Header = ({ openDrawer }) => {
+ 
   return (
 
     <AppBar position="static">
       <Toolbar>
 
-        <Typography variant="h6" 
-        sx={{flexGrow:1}}
-        component='span'>
+        <Typography variant="h6"
+          sx={{ flexGrow: 1 }}
+          component='span'>
           MUI SHOP
         </Typography>
 
         <IconButton
           color="inherit"
+          onClick={openDrawer}
         >
           <ShoppingBasketIcon />
         </IconButton>
